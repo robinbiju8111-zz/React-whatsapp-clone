@@ -7,4 +7,12 @@ const firebaseConfig = {
     messagingSenderId: "993453969587",
     appId: "1:993453969587:web:e02b97492b7b3e901360c6",
     measurementId: "G-SWXB1JJNE9"
-  };
+};
+  
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+const db = firebaseApp.firestore();
+const auth = firebase.auth();
+const Provider = new firebase.auth.GoogleAuthProvider();
+
+export { auth, Provider };Is it OK to keep UPS plugged in all the time
+export default db;
