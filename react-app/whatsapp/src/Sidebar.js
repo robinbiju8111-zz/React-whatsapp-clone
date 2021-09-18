@@ -3,11 +3,25 @@ import "./Sidebar.css";
 import { DonutLarge, Chat, MoreVert, SearchOutlined } from '@material-ui/icons';
 import { Avatar, IconButton } from '@material-ui/core';
 import SidebarChats from './SidebarChats';
-
+import db from './firebase.js';
+import { useState, useEffect } from 'react';
 
 
 
 function Sidebar() {
+    const [rooms, setRooms] = useState([]);
+    useEffect(() => {
+        db.collections('rooms').onSnapshot((snapshot) => (
+            setRooms(
+                snapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    data: doc.data(),
+
+                }
+                )))
+        ));
+}, []);
+    
     return (
         <div className="sidebar_main">
             <div className="sidebar_header">
@@ -33,8 +47,9 @@ function Sidebar() {
             </div>
             <div className="sidebar_chats">
                 <SidebarChats addNewChat/>
-                <SidebarChats />
-                <SidebarChats />
+                {rooms.map(room => (
+                    <SidebarChats key={room.id} id={room.id} name={room.data.name} />
+                ))}
             </div>
         </div>
     )

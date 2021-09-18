@@ -1,3 +1,6 @@
+import firebase from "firebase";
+
+
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
     apiKey: "AIzaSyA9sO-k_vq5tqFQqsJcv7p00l8nx3AZkuo",
@@ -7,12 +10,13 @@ const firebaseConfig = {
     messagingSenderId: "993453969587",
     appId: "1:993453969587:web:e02b97492b7b3e901360c6",
     measurementId: "G-SWXB1JJNE9"
-};
+  };
   
+
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const db = firebaseApp.firestore();
 const auth = firebase.auth();
-const Provider = new firebase.auth.GoogleAuthProvider();
+const provider = new firebase.auth.GoogleAuthProvider();
 
-export { auth, Provider };Is it OK to keep UPS plugged in all the time
+export { auth, provider };
 export default db;
