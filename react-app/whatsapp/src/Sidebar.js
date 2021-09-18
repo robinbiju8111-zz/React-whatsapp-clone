@@ -3,7 +3,7 @@ import "./Sidebar.css";
 import { DonutLarge, Chat, MoreVert, SearchOutlined } from '@material-ui/icons';
 import { Avatar, IconButton } from '@material-ui/core';
 import SidebarChats from './SidebarChats';
-import db from './firebase.js';
+import db from './firebase';
 import { useState, useEffect } from 'react';
 
 
@@ -11,7 +11,7 @@ import { useState, useEffect } from 'react';
 function Sidebar() {
     const [rooms, setRooms] = useState([]);
     useEffect(() => {
-        db.collections('rooms').onSnapshot((snapshot) => (
+        db.collection('rooms').onSnapshot((snapshot) => (
             setRooms(
                 snapshot.docs.map((doc) => ({
                     id: doc.id,

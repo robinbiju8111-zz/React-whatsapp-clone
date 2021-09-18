@@ -54,7 +54,7 @@ export default function Chats() {
         <div className="chat_footer">
                 <InsertEmoticon />
                 <form action="">
-                    <input value={input} onChange={(e) => setinput(e.target.value)} type="text" placeholder="  -checkthis- Type mesaage here" />
+                    <input value={input} onChange={(e) => setinput(e.target.value)} type="text" placeholder="Type mesaage here" />
                     <button onClick={sendMsg}>Send a message</button>
                 </form>
                 <Mic />
