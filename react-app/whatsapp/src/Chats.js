@@ -5,6 +5,7 @@ import { AttachFile, InsertEmoticon, Mic, MoreVert, Search } from '@material-ui/
 import { useParams } from 'react-router';
 import db from './firebase';
 
+
 export default function Chats() {
     const [input, setinput]= useState("")
     const [seed, setseed] = useState("");
@@ -24,7 +25,7 @@ export default function Chats() {
     useEffect(() => {
         setseed(Math.floor(Math.random() * 5000));
     
-    }, []);
+    }, [roomId]);
 
     const sendMsg= (e) => {
         e.preventDefault();
