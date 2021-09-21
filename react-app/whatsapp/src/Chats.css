@@ -53,13 +53,18 @@
 .chat_msg{
     color: rgb(0, 0, 0);
     font-size: 16px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(122, 211, 218);
     border-radius: 20px;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     width: fit-content;
     position: relative;
     box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.7);
+}
+
+.chat_receiver{
+    margin-left: auto;
+    background-color: rgba(131, 228, 160, 0.671);
 }
 
 .msg_person_name{
@@ -81,7 +86,7 @@
     justify-content: space-between;
     align-items: center;
     height: 62px;
-    border-top: 1px solid rgb(216, 216, 216);
+    border-top: 1px solid rgb(216, 216, 216)
 
 }
 
@@ -95,7 +100,7 @@
     flex: 1;
     border-radius: 20px;
     border: none;
-    line-height: 30px;
+    line-height: 40px;
     padding-left: 13px;
 
 }

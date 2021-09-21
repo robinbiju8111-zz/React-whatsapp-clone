@@ -2,13 +2,13 @@ import './App.css';
 import Sidebar from './Sidebar';
 import Chats from './Chats';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+
 import Login from './Login';
 import { useStateValue } from './StateProvider';
 
 function App() {
 
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user }, ] = useStateValue();
   
   return (
     <div className="app">

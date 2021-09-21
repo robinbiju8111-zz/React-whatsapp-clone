@@ -5,11 +5,14 @@ import { Avatar, IconButton } from '@material-ui/core';
 import SidebarChats from './SidebarChats';
 import db from './firebase';
 import { useState, useEffect } from 'react';
+import { useStateValue } from './StateProvider';
 
 
 
 function Sidebar() {
     const [rooms, setRooms] = useState([]);
+    // eslint-disable-next-line no-unused-vars
+    const [{ user }, dispatch] = useStateValue();
     useEffect(() => {
        const unsubscribe= db.collection('rooms').onSnapshot((snapshot) => (
             setRooms(
@@ -28,7 +31,7 @@ function Sidebar() {
     return (
         <div className="sidebar_main">
             <div className="sidebar_header">
-                <Avatar />
+                <Avatar src={user?.photoURL} />
                 <div className="sidebar_header_right">
                     <IconButton>
                         <DonutLarge />

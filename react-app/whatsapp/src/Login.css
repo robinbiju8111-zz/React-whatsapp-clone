@@ -13,11 +13,12 @@
 
 .logo> img{
     object-fit: contain;
-    height: 200px;
+    height: 120px;
 }
 
 .signin_text{
-    padding-bottom: 13px;
+    padding-bottom: 30px;
+    padding-top: 15px;
 }
 
 .button > button{
@@ -25,6 +26,7 @@
     text-transform: inherit !important;
     color: rgb(255, 255, 255);
     background-color: rgb(38, 165, 57);
+    
 
 }
 .button> button:hover{

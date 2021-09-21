@@ -5,8 +5,17 @@ import { useEffect, useState } from 'react';
 import db from './firebase';
 import { Link } from 'react-router-dom';
 
-export default function SidebarChats( { id, name, addNewChat } ) {
+export default function SidebarChats({ id, name, addNewChat }) {
     const [seed, setseed] = useState("");
+    const [messages, setMessages] = useState("");
+
+    useEffect(() => {
+        if (id) {
+            db.collection("rooms").doc(id).collection("messages").orderBy("timestamp", "desc").onSnapshot((snapshot) => setMessages(snapshot.docs.map((doc) => doc.data())));
+        }
+    }, [id]);
+    
+
     useEffect(() => {
         setseed(Math.floor(Math.random() * 5000));
     
@@ -28,7 +37,7 @@ export default function SidebarChats( { id, name, addNewChat } ) {
             <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`} />
             <div className="sidebar_chatInfo">
                 <h2>{ name }</h2>
-                <p>Last msg</p>
+                <p><i>{messages[0]?.message}</i></p>
             </div>
             </div>
         </Link>
